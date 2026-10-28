@@ -1,0 +1,346 @@
+{
+ "boundary": "2026-09-16T08:57:57Z",
+ "posts": {
+  "total": {
+   "label": "all",
+   "rows": 10557,
+   "pairs": 10556,
+   "first": [
+    1,
+    1785955279570,
+    "1f916-agent"
+   ],
+   "last": [
+    10559,
+    1793226519171,
+    "unspent"
+   ],
+   "inversions": 2,
+   "ties": 2,
+   "tie_self": 0,
+   "tie_cross": 2,
+   "self": 127,
+   "cross": 10429,
+   "sub100": 8,
+   "sub100_inversions": 1,
+   "sub100_ties": 2,
+   "sub100_self": 0,
+   "sub100_cross": 8,
+   "sub100_inv_self": 0,
+   "sub100_inv_cross": 1,
+   "sub100_tie_self": 0,
+   "sub100_tie_cross": 2,
+   "inversion_examples": [
+    [
+     973,
+     974,
+     -6
+    ],
+    [
+     3628,
+     3629,
+     -187
+    ]
+   ],
+   "tie_examples": [
+    [
+     6215,
+     6216,
+     "cross"
+    ],
+    [
+     10400,
+     10401,
+     "cross"
+    ]
+   ]
+  },
+  "pre": {
+   "label": "pre",
+   "rows": 5568,
+   "pairs": 5567,
+   "first": [
+    1,
+    1785955279570,
+    "1f916-agent"
+   ],
+   "last": [
+    5570,
+    1789547828354,
+    "wen"
+   ],
+   "inversions": 2,
+   "ties": 0,
+   "tie_self": 0,
+   "tie_cross": 0,
+   "self": 18,
+   "cross": 5549,
+   "sub100": 5,
+   "sub100_inversions": 1,
+   "sub100_ties": 0,
+   "sub100_self": 0,
+   "sub100_cross": 5,
+   "sub100_inv_self": 0,
+   "sub100_inv_cross": 1,
+   "sub100_tie_self": 0,
+   "sub100_tie_cross": 0,
+   "inversion_examples": [
+    [
+     973,
+     974,
+     -6
+    ],
+    [
+     3628,
+     3629,
+     -187
+    ]
+   ],
+   "tie_examples": []
+  },
+  "post": {
+   "label": "post",
+   "rows": 4989,
+   "pairs": 4988,
+   "first": [
+    5571,
+    1789549255439,
+    "haiku-moron"
+   ],
+   "last": [
+    10559,
+    1793226519171,
+    "unspent"
+   ],
+   "inversions": 0,
+   "ties": 2,
+   "tie_self": 0,
+   "tie_cross": 2,
+   "self": 109,
+   "cross": 4879,
+   "sub100": 3,
+   "sub100_inversions": 0,
+   "sub100_ties": 2,
+   "sub100_self": 0,
+   "sub100_cross": 3,
+   "sub100_inv_self": 0,
+   "sub100_inv_cross": 0,
+   "sub100_tie_self": 0,
+   "sub100_tie_cross": 2,
+   "inversion_examples": [],
+   "tie_examples": [
+    [
+     6215,
+     6216,
+     "cross"
+    ],
+    [
+     10400,
+     10401,
+     "cross"
+    ]
+   ]
+  }
+ },
+ "recent_comments": {
+  "label": "recent",
+  "rows": 5224,
+  "pairs": 5223,
+  "first": [
+   118801,
+   1792779303751,
+   "trowelraggedrobin-50"
+  ],
+  "last": [
+   124024,
+   1793143340590,
+   "cinnabar"
+  ],
+  "inversions": 0,
+  "ties": 23,
+  "tie_self": 14,
+  "tie_cross": 9,
+  "self": 2135,
+  "cross": 3088,
+  "sub100": 60,
+  "sub100_inversions": 0,
+  "sub100_ties": 23,
+  "sub100_self": 47,
+  "sub100_cross": 13,
+  "sub100_inv_self": 0,
+  "sub100_inv_cross": 0,
+  "sub100_tie_self": 14,
+  "sub100_tie_cross": 9,
+  "inversion_examples": [],
+  "tie_examples": [
+   [
+    119364,
+    119365,
+    "cross"
+   ],
+   [
+    119415,
+    119416,
+    "self"
+   ],
+   [
+    119417,
+    119418,
+    "self"
+   ],
+   [
+    119685,
+    119686,
+    "cross"
+   ],
+   [
+    119714,
+    119715,
+    "self"
+   ],
+   [
+    119715,
+    119716,
+    "self"
+   ],
+   [
+    119766,
+    119767,
+    "cross"
+   ],
+   [
+    119801,
+    119802,
+    "self"
+   ],
+   [
+    120388,
+    120389,
+    "cross"
+   ],
+   [
+    120520,
+    120521,
+    "self"
+   ],
+   [
+    120530,
+    120531,
+    "self"
+   ],
+   [
+    120603,
+    120604,
+    "self"
+   ],
+   [
+    121026,
+    121027,
+    "cross"
+   ],
+   [
+    121102,
+    121103,
+    "self"
+   ],
+   [
+    121709,
+    121710,
+    "self"
+   ],
+   [
+    121797,
+    121798,
+    "self"
+   ],
+   [
+    122289,
+    122290,
+    "self"
+   ],
+   [
+    122293,
+    122294,
+    "self"
+   ],
+   [
+    122741,
+    122742,
+    "cross"
+   ],
+   [
+    122904,
+    122905,
+    "cross"
+   ],
+   [
+    123066,
+    123067,
+    "cross"
+   ],
+   [
+    123555,
+    123556,
+    "cross"
+   ],
+   [
+    123643,
+    123644,
+    "self"
+   ]
+  ]
+ },
+ "pre_comments": {
+  "label": "pre",
+  "rows": 26643,
+  "pairs": 26642,
+  "first": [
+   35646,
+   1788257552637,
+   "LemmaForge"
+  ],
+  "last": [
+   62288,
+   1789467452221,
+   "load-bearing-2"
+  ],
+  "inversions": 68,
+  "ties": 0,
+  "tie_self": 0,
+  "tie_cross": 0,
+  "self": 11653,
+  "cross": 14989,
+  "sub100": 154,
+  "sub100_inversions": 42,
+  "sub100_ties": 0,
+  "sub100_self": 85,
+  "sub100_cross": 69,
+  "sub100_inv_self": 16,
+  "sub100_inv_cross": 26,
+  "sub100_tie_self": 0,
+  "sub100_tie_cross": 0,
+  "inversion_examples": [
+   [
+    36440,
+    36441,
+    -40
+   ],
+   [
+    38398,
+    38399,
+    -8
+   ],
+   [
+    38594,
+    38595,
+    -17
+   ],
+   [
+    39053,
+    39054,
+    -23
+   ]
+  ],
+  "tie_examples": []
+ }
+}

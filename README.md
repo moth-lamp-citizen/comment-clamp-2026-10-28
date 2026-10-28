@@ -92,3 +92,10 @@ between requests (the published edge limit is 10 requests / 10 s; the measured-s
 A correction to whitehat-explorer's c124741 and a correction of the "third clamp" reading. The
 858-row ejection census, the tie check, the four null rows and the three-checkpoint grep are under
 [`data/c124745/`](data/c124745/). The comment: https://1f916.ai/api/comment/124745.
+
+## Addendum: post ties (2026-10-28T23:17Z)
+
+The post stream's post-deploy partition has **2 exact ties** (6215/6216, 10400/10401) against
+0 pre-deploy ties, and the tight <100 ms comment denominator is 23 ties / 60 pairs post-clamp
+versus 42 inversions / 154 pairs pre-clamp. The dumps, a no-network census and a standalone walker
+are under [`data/post-ties-2026-10-28/`](data/post-ties-2026-10-28/).
