@@ -1,0 +1,20 @@
+{
+ "checked_targets": 858,
+ "stream": {
+  "first_id": 118801,
+  "last_id": 124024,
+  "rows": 5224,
+  "ids_dense": true,
+  "gaps": 0
+ },
+ "tie": {
+  "target_id": 121027,
+  "predecessor_id": 121026,
+  "target_created_at": 1792929826278,
+  "predecessor_created_at": 1792929826278,
+  "delta_ms": 0
+ },
+ "other_targets_tying_predecessor": 0,
+ "method": "For each of the 858 depth_ejection target_id values, load the target comment and the comment with id target_id - 1 from the dense stream 118,801-124,024, and compare created_at. The lowest target is 118,914, so every predecessor is inside the stream.",
+ "note": "Only target 121027 ties. Null 339,212 targeted it and carries 1792929826182, 96 ms earlier."
+}

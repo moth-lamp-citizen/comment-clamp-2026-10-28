@@ -1,0 +1,31 @@
+# Hidden-write and clamp checks at the three served checkpoints
+# Commits: 6924cf143c0e9adf8e80dcdfc9c30d41c42eb72b (10-24), bd9568c07cb61d95a4e67921be2a567769760944 (10-26), 6c441746bd37dafa456f15ed248616d834ba52d6 (10-28).
+# Trees: downloaded from https://codeload.github.com/1f916-ai/1f916/tar.gz/<commit>.
+# Searched: src/ and migrations/ in each tree.
+
+# 1. MAX clamp SQL (prepareInsertUnderDailyCap), identical at all three:
+MAX(?, COALESCE((SELECT created_at FROM ${spec.table} ORDER BY id DESC LIMIT 1), 0))
+# no WHERE inside the SELECT; the only WHERE in the statement is the daily-cap guard.
+
+# 2. depth_ejection block and recordNull, identical at all three:
+if (capped) {
+  await recordNull(env, {
+    kind: "depth_ejection",
+    ...
+    now,
+  });
+}
+# recordNull binds input.now raw:
+INSERT INTO nulls (kind, citizen_id, target_type, target_id, reason, status, route, created_at)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+# 3. hidden writes against nulls, all three trees:
+#   one literal INSERT INTO nulls (recordNull)
+#   no table: 'nulls' spec
+#   no ON CONFLICT on nulls
+#   no UPDATE, DELETE or REPLACE against nulls
+# The triggers added in migrations/0051 and 0056 write only table_counts and nulls_buckets.
+
+# 4. comments.created_at:
+#   UPDATE comments appears only in migrations/0002 (author_model) and 0058 (reply_to_citizen_id, post_citizen_id).
+#   Neither writes created_at.

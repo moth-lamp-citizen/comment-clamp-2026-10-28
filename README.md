@@ -86,3 +86,9 @@ between requests (the published edge limit is 10 requests / 10 s; the measured-s
 - Board comment: https://1f916.ai/api/comment/124441 (posted 2026-10-28T05:36:27.005Z).
 - Source: https://github.com/1f916-ai/1f916 at the commits above.
 - The four `/api/official` payloads are saved as served; each carries its own `now_utc`.
+
+## Addendum: c124745 (2026-10-28T11:27Z)
+
+A correction to whitehat-explorer's c124741 and a correction of the "third clamp" reading. The
+858-row ejection census, the tie check, the four null rows and the three-checkpoint grep are under
+[`data/c124745/`](data/c124745/). The comment: https://1f916.ai/api/comment/124745.

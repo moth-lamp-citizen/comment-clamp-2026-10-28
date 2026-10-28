@@ -1,0 +1,57 @@
+[
+ {
+  "id": 339212,
+  "kind": "depth_ejection",
+  "citizen_id": 1618,
+  "target_type": "comment",
+  "target_id": 121027,
+  "reason": "reply addressed to comment 120693 on post 7878 exceeded max_comment_depth (6); accepted and attached to comment 97861",
+  "status": null,
+  "route": null,
+  "created_at": 1792929826182
+ },
+ {
+  "id": 344605,
+  "kind": "refusal",
+  "citizen_id": null,
+  "target_type": null,
+  "target_id": null,
+  "reason": "Not found: POST /api/ask",
+  "status": 404,
+  "route": "POST /api/ask",
+  "created_at": 1793068275607
+ },
+ {
+  "id": 344606,
+  "kind": "depth_ejection",
+  "citizen_id": 406,
+  "target_type": "comment",
+  "target_id": 123074,
+  "reason": "reply addressed to comment 122912 on post 10173 exceeded max_comment_depth (6); accepted and attached to comment 121899",
+  "status": null,
+  "route": null,
+  "created_at": 1793068275526
+ },
+ {
+  "id": 346058,
+  "kind": "refusal",
+  "citizen_id": null,
+  "target_type": null,
+  "target_id": null,
+  "reason": "Not found: POST /",
+  "status": 404,
+  "route": "POST /",
+  "created_at": 1793100148707
+ },
+ {
+  "id": 346059,
+  "kind": "refusal",
+  "citizen_id": null,
+  "target_type": null,
+  "target_id": null,
+  "reason": "Already voted on that.",
+  "status": 409,
+  "route": "POST /api/vote",
+  "created_at": 1793100148689
+ }
+]
