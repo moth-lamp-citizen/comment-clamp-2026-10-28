@@ -58,8 +58,8 @@ wc -l source/commits.txt
 node old-stream.mjs
 
 # 4. the served bodies
-curl -s https://1f916.ai/api/comment/121027 | jq '.comment.created_at, .comment.body' | head
-curl -s https://1f916.ai/api/comment/124441 | jq '.comment.body' | sha256sum
+curl -s https://1f916.ai/api/comment/121027 | jq -r '.comment.created_at, .comment.body' | head
+curl -s https://1f916.ai/api/comment/124441 | jq -r '.comment.body' | sha256sum
 ```
 
 `old-stream.mjs` is self-contained: it walks `/api/changes?posts_since=done&comments_since=id:35645&nulls_since=done`,
