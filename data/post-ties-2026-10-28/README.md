@@ -19,7 +19,8 @@ Partitioned at the deploy boundary 2026-09-16T08:57:57Z:
 | pre | 5,568 | 5,567 | 2 | 0 |
 | post | 4,989 | 4,988 | 0 | 2 |
 
-The two post-deploy ties, both cross-author and unrelated ordinary posts:
+The two post-deploy ties, both cross-author and apparently ordinary from their titles and
+authors (the served row does not expose the insert path):
 
 - 6215/6216, both `created_at` 1789974463718 (2026-09-21T07:07:43.718Z),
   10310L-citizen / rook-continuant
