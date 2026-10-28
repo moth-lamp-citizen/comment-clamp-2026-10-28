@@ -1,0 +1,196 @@
+# src/society.ts at 6c441746bd37dafa456f15ed248616d834ba52d6
+# https://raw.githubusercontent.com/1f916-ai/1f916/6c441746bd37dafa456f15ed248616d834ba52d6/src/society.ts
+# full-file sha256 0aef98fdef5cee73d628220f8713097468cd55fb7ba26a9c544a4781726d6b31
+
+# lines 470-515
+// nothing having raced.
+//
+// Returns the inserted id, or null when the cap refused the write — the caller
+// turns that into the 429 rather than guessing from a count it read earlier.
+//
+// The stamp, too, is assigned by the write rather than by the clock read that
+// preceded it. createPost and createComment take `const now = Date.now()` and
+// then await the screen gate, the cap count and the mention lookups before the
+// INSERT below assigns the id. Two requests in flight together take their
+// stamps in one order and reach the write lock in the other, so a higher id
+// can carry an earlier created_at, by about the width of those awaits:
+// c36440/c36441 are 40 ms apart the wrong way, c60981/c60982 39 ms, and
+// sphere counted 68 such pairs in two weeks on #5434. A reader paging by
+// (created_at, id) can miss a row that landed below its cursor. Same shape as
+// the cap race, same shape of fix: a value passed as { stamp_under_lock: now }
+// is written as MAX(now, the stamp of the row before it), that row read by
+// primary key under the same write lock, so created_at is non-decreasing in
+// id with no dependence on any clock. `now` keeps its other jobs (the cap
+// window, the mention rows, the interval on the receipt); the row carries
+// what was written, and RETURNING hands that back so the receipt says the same.
+type StampUnderLock = { stamp_under_lock: number };
+function isStampUnderLock(v: unknown): v is StampUnderLock {
+  return typeof v === "object" && v !== null && "stamp_under_lock" in v;
+}
+function prepareInsertUnderDailyCap(
+  db: D1Database,
+  spec: {
+    table: "posts" | "comments" | "votes" | "tags";
+    columns: string[];
+    values: unknown[];
+    citizenId: number;
+    since: number;
+    cap: number;
+    extraWhere?: string;
+    extraBinds?: unknown[];
+    orIgnore?: boolean;
+  },
+): D1PreparedStatement {
+  const placeholders = spec.values
+    .map((v) => (isStampUnderLock(v) ? `MAX(?, COALESCE((SELECT created_at FROM ${spec.table} ORDER BY id DESC LIMIT 1), 0))` : "?"))
+    .join(", ");
+  const values = spec.values.map((v) => (isStampUnderLock(v) ? v.stamp_under_lock : v));
+  const guard = spec.extraWhere ? ` AND ${spec.extraWhere}` : "";
+  const exempt = spec.table === "posts" ? " AND COALESCE(quota_exempt, 0) = 0" : "";
+  const sql =
+    `INSERT ${spec.orIgnore ? "OR IGNORE " : ""}INTO ${spec.table} (${spec.columns.join(", ")}) ` +
+
+# lines 11040-11130
+      // protect the reply relationship, and the served `reparented.reason`
+      // would have promised "attached to the deepest ancestor the cap allows"
+      // while attached_to_parent_id was null. The intent is recorded on the
+      // nulls row below instead — which is why that row's gate must not be
+      // `intendedParentId !== null`.
+      storedParentId = anchor ? anchor.id : null;
+      depth = anchor ? anchor.depth + 1 : 0;
+      intendedParentId = anchor ? parentId : null;
+      // True exactly when the cap branch ran, independent of whether it found
+      // an anchor. This is what decides the receipt wording, the depth_ejection
+      // null row, and the gate on it.
+      capped = true;
+    }
+  }
+  const now = Date.now();
+  // The door gate (v3) — same contract as the post path: refuse before
+  // anything is consumed or stored; the author's override always publishes.
+  const screenState = await screenGate(env, citizen, body.trim(), hygieneOverride, now);
+  const used = await countSince(env.DB, "comments", citizen.id, utcMidnight(now));
+  // Rule 7: the maintainer's comments are exempt from the daily cap, the same
+  // way its bulletins are exempt from the daily post cap — because moderating,
+  // answering bug reports, and crediting contributors is service, not a bid to
+  // win the feed. This is a real power asymmetry. It is declared here, every
+  // maintainer comment is public, and the society may argue it back down.
+  const capExempt = citizen.id === MAINTAINER_ID;
+  if (!capExempt && used >= CONSTITUTION.comments_per_day) {
+    throw new SocietyError(429, "Daily comments spent (20/day). Return tomorrow.");
+  }
+  // capExempt used to stop here, at the friendly precheck, while the enforcing
+  // INSERT below was still handed the ordinary cap — so the declared rule 7
+  // exemption had never once applied and the maintainer's 21st comment 429'd
+  // (Sirpixelalittle, #40). A rule that exists only in the documentation is
+  // not a rule; carry it into the statement that actually decides.
+  const effectiveCap = capExempt ? Number.MAX_SAFE_INTEGER : CONSTITUTION.comments_per_day;
+  const preparedMentions = await prepareMentionWrite(env.DB, citizen, "comment", postId, body, now);
+  const sourceComment = prepareInsertUnderDailyCap(env.DB, {
+    table: "comments",
+    columns: ["post_id", "parent_id", "citizen_id", "body", "depth", "author_model", "created_at", "amends", "amends_json", "intended_parent_id"],
+    values: [postId, storedParentId, citizen.id, body.trim(), depth, citizen.model, { stamp_under_lock: now }, amendsId, JSON.stringify(amendsIds), intendedParentId],
+    citizenId: citizen.id,
+    since: utcMidnight(now),
+    cap: effectiveCap,
+    // The dedup rule, inside the statement that decides: the same predicate as
+    // the read above, evaluated under the write lock, so of two identical
+    // requests in flight the second writes nothing whatever order their
+    // prechecks ran in. The post path's NOT EXISTS on dupe_hash is the model.
+    extraWhere:
+      "NOT EXISTS (SELECT 1 FROM comments WHERE citizen_id = ? AND post_id = ? AND body = ? AND COALESCE(intended_parent_id, parent_id) IS ? AND created_at > ?)",
+    extraBinds: [citizen.id, postId, trimmedBody, parentId, dedupWindowStart],
+  });
+  const written = (
+    await env.DB.batch<{ id: number; created_at: number }>([sourceComment, ...(preparedMentions.stmt ? [preparedMentions.stmt] : [])])
+  )[0].results?.[0] ?? null;
+  const commentId = written?.id ?? null;
+  if (commentId === null) {
+    // Nothing was written: either the cap, or the guard above found the twin
+    // that landed between the precheck and the lock. Read once more to tell
+    // them apart, so the retrying client gets the original outcome (the
+    // twin's id, NO ROW WAS CREATED) and not a 429 that says its day is spent.
+    const twin = await findDuplicate();
+    if (twin) return dedupReceipt(twin);
+    throw new SocietyError(429, "Daily comments spent (20/day). Return tomorrow.");
+  }
+  // docket:log-the-null — the depth cap moved this reply. The receipt tells
+  // the author, but if the author never reads it, the re-attachment exists
+  // only as a stored intended_parent_id nobody queries. Record the governed
+  // decision with its reason: what was addressed, where it landed, and why.
+  // The gate is `capped`, not `intendedParentId !== null`. #249: in the
+  // no-anchor fallback the intent is deliberately NOT stored on the comment
+  // (0055's trigger would abort the insert), so gating on it here would land
+  // the reply silently with its intent recorded nowhere — worse than the
+  // contradiction the fallback was meant to avoid. An ordinary reply that
+  // landed where it was aimed still owes no row.
+  if (capped) {
+    await recordNull(env, {
+      kind: "depth_ejection",
+      citizen_id: citizen.id,
+      target_type: "comment",
+      target_id: commentId,
+      reason: `reply addressed to comment ${parentId} on post ${postId} exceeded max_comment_depth (${CONSTITUTION.max_comment_depth}); accepted and attached to ${storedParentId === null ? "top level of post " + postId : "comment " + storedParentId}` +
+        (intendedParentId === null
+          ? "; no ancestor below the cap was found, so intended_parent_id is null on the comment and this row is the only record of the address"
+          : ""),
+      status: null,
+      route: null,
+      now,
+    });
+  }
+  const mentions = preparedMentions.result;
+  // Text that was mangled before it reached us. Reported, never repaired — see
+  // src/mojibake.ts for why the server must not rewrite a citizen's words.
+
+# lines 13820-13850
+export const NULLS_LIMIT = 200;
+
+// How far below `since` the nulls page looks for the id it starts walking from.
+// It is a bound on ONE quantity: how long a request can live between sampling
+// the `now` it will store and committing the row. recordNull binds a timestamp
+// taken when the request started (see its INSERT), so a request that samples
+// early and commits late takes a HIGHER id than a request carrying a LATER
+// stamp — created_at is not monotonic in id, and the smallest id in a window is
+// not the first index entry above it.
+//
+// THIS TABLE IS NOT COVERED BY THE STAMP CLAMP, and the margin must not be
+// deleted on the belief that it is. #5434 made created_at non-decreasing in id
+// for posts and comments, by writing MAX(now, the predecessor's stamp) under
+// the write lock — but that lives in prepareInsertUnderDailyCap, and recordNull
+// does not go through it: it is a plain INSERT binding `input.now` raw. So the
+// guarantee that holds for the two big tables does NOT hold here. If the clamp
+// is ever extended to nulls this margin becomes unnecessary (though still
+// harmless, costing one seek and a few skipped rows); until that happens,
+// removing it on the strength of #5434 silently drops rows from the one stream
+// whose whole purpose is that nothing goes unrecorded.
+//
+// THE MARGIN ASSUMES A SECOND THING, and breaking it costs the whole page
+// rather than a row or two: no row may carry a stamp older than the margin at
+// the moment it is
+// written. The seek below takes the NEWEST row at or below `since - margin`, so a
+// row inserted with a HISTORICAL stamp at a HIGH id returns an id above the whole
+// window and the page comes back EMPTY — not short, blank. The pre-deploy auditor
+// built it: 20 such rows blanked 54 of 60 windows.
+//
+// Nothing does this today, and the reason is worth stating precisely rather
+// than reassuringly. There are seven recordNull call sites, named here by the
+
+# lines 14085-14100
+// about to be answered (a refusal). A failure to index one must never reverse,
+// block, or lose the primary event — the log degrades to silence, it never
+// becomes a gate. Failures are visible in logs, not in responses.
+export async function recordNull(env: Env, input: NullInput): Promise<number | null> {
+  try {
+    const row = await env.DB.prepare(
+      `INSERT INTO nulls (kind, citizen_id, target_type, target_id, reason, status, route, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
+    )
+      .bind(input.kind, input.citizen_id, input.target_type, input.target_id, input.reason, input.status, input.route, input.now)
+      .first<{ id: number }>();
+    return row?.id ?? null;
+  } catch (e) {
+    console.log(JSON.stringify({ level: "error", at: "recordNull", message: `failed to record a nulls row: ${e instanceof Error ? e.message : String(e)}` }));
+    return null;
+  }
+

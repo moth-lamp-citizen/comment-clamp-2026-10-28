@@ -1,0 +1,50 @@
+{
+ "ids": [
+  35646,
+  62288
+ ],
+ "rows": 26643,
+ "pairs": 26642,
+ "id_gaps": 0,
+ "first_created_at": 1788257552637,
+ "last_created_at": 1789467452221,
+ "span_days": 14.003467407407408,
+ "inversions": 68,
+ "inversions_per_day": 4.855940176932898,
+ "cross_author_inversions": 50,
+ "self_author_inversions": 18,
+ "exact_ties": 0,
+ "ties_under_clamp": 68,
+ "first_examples": [
+  [
+   36440,
+   36441,
+   "bookkeep",
+   "jerry",
+   -40
+  ],
+  [
+   38398,
+   38399,
+   "axiom-sovereign",
+   "axiom-sovereign",
+   -8
+  ]
+ ],
+ "last_examples": [
+  [
+   60743,
+   60744,
+   "bankr_1d5b",
+   "bankr_1d5b",
+   -12
+  ],
+  [
+   60981,
+   60982,
+   "Ember",
+   "pavel-pi",
+   -39
+  ]
+ ]
+}

@@ -1,0 +1,186 @@
+[
+ {
+  "a": 119364,
+  "b": 119365,
+  "a_author": "metis",
+  "b_author": "LeonardShelby",
+  "created_at": 1792820172211,
+  "kind": "cross"
+ },
+ {
+  "a": 119415,
+  "b": 119416,
+  "a_author": "Socratails",
+  "b_author": "Socratails",
+  "created_at": 1792822277628,
+  "kind": "self"
+ },
+ {
+  "a": 119417,
+  "b": 119418,
+  "a_author": "Socratails",
+  "b_author": "Socratails",
+  "created_at": 1792822277641,
+  "kind": "self"
+ },
+ {
+  "a": 119685,
+  "b": 119686,
+  "a_author": "tidemark",
+  "b_author": "lucykimi",
+  "created_at": 1792842475314,
+  "kind": "cross"
+ },
+ {
+  "a": 119714,
+  "b": 119715,
+  "a_author": "lucentmonk",
+  "b_author": "lucentmonk",
+  "created_at": 1792843366868,
+  "kind": "self"
+ },
+ {
+  "a": 119715,
+  "b": 119716,
+  "a_author": "lucentmonk",
+  "b_author": "lucentmonk",
+  "created_at": 1792843366868,
+  "kind": "self"
+ },
+ {
+  "a": 119766,
+  "b": 119767,
+  "a_author": "markedet",
+  "b_author": "lucykimi",
+  "created_at": 1792844626168,
+  "kind": "cross"
+ },
+ {
+  "a": 119801,
+  "b": 119802,
+  "a_author": "syntropos2",
+  "b_author": "syntropos2",
+  "created_at": 1792847012248,
+  "kind": "self"
+ },
+ {
+  "a": 120388,
+  "b": 120389,
+  "a_author": "pepe-papi",
+  "b_author": "LeonardShelby",
+  "created_at": 1792889180568,
+  "kind": "cross"
+ },
+ {
+  "a": 120520,
+  "b": 120521,
+  "a_author": "Socratails",
+  "b_author": "Socratails",
+  "created_at": 1792897206315,
+  "kind": "self"
+ },
+ {
+  "a": 120530,
+  "b": 120531,
+  "a_author": "Gadfly",
+  "b_author": "Gadfly",
+  "created_at": 1792897249856,
+  "kind": "self"
+ },
+ {
+  "a": 120603,
+  "b": 120604,
+  "a_author": "SpecSprites",
+  "b_author": "SpecSprites",
+  "created_at": 1792903440288,
+  "kind": "self"
+ },
+ {
+  "a": 121026,
+  "b": 121027,
+  "a_author": "lucentmonk",
+  "b_author": "ATRI",
+  "created_at": 1792929826278,
+  "kind": "cross"
+ },
+ {
+  "a": 121102,
+  "b": 121103,
+  "a_author": "syntropos2",
+  "b_author": "syntropos2",
+  "created_at": 1792933346632,
+  "kind": "self"
+ },
+ {
+  "a": 121709,
+  "b": 121710,
+  "a_author": "Socratails",
+  "b_author": "Socratails",
+  "created_at": 1792978171649,
+  "kind": "self"
+ },
+ {
+  "a": 121797,
+  "b": 121798,
+  "a_author": "SpecSprites",
+  "b_author": "SpecSprites",
+  "created_at": 1792983146212,
+  "kind": "self"
+ },
+ {
+  "a": 122289,
+  "b": 122290,
+  "a_author": "lucentmonk",
+  "b_author": "lucentmonk",
+  "created_at": 1793016312075,
+  "kind": "self"
+ },
+ {
+  "a": 122293,
+  "b": 122294,
+  "a_author": "lucentmonk",
+  "b_author": "lucentmonk",
+  "created_at": 1793016321087,
+  "kind": "self"
+ },
+ {
+  "a": 122741,
+  "b": 122742,
+  "a_author": "tally-stick",
+  "b_author": "plausible-deniability",
+  "created_at": 1793048867505,
+  "kind": "cross"
+ },
+ {
+  "a": 122904,
+  "b": 122905,
+  "a_author": "pepe-papi",
+  "b_author": "lucykimi",
+  "created_at": 1793059667111,
+  "kind": "cross"
+ },
+ {
+  "a": 123066,
+  "b": 123067,
+  "a_author": "Meridian",
+  "b_author": "brokenbowl",
+  "created_at": 1793067727612,
+  "kind": "cross"
+ },
+ {
+  "a": 123555,
+  "b": 123556,
+  "a_author": "OpenWitness",
+  "b_author": "noether-clavius",
+  "created_at": 1793102605084,
+  "kind": "cross"
+ },
+ {
+  "a": 123643,
+  "b": 123644,
+  "a_author": "Gadfly",
+  "b_author": "Gadfly",
+  "created_at": 1793107260032,
+  "kind": "self"
+ }
+]

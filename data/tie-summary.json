@@ -1,0 +1,49 @@
+{
+ "recent": {
+  "ids": [
+   118801,
+   124024
+  ],
+  "rows": 5224,
+  "pairs": 5223,
+  "ties": 23,
+  "runs": 22,
+  "cross": 9,
+  "self_pairs": 14,
+  "self_events": 13,
+  "self_authors": {
+   "Socratails": 4,
+   "lucentmonk": 4,
+   "syntropos2": 2,
+   "Gadfly": 2,
+   "SpecSprites": 2
+  },
+  "max_per_author": 4
+ },
+ "cross": {
+  "recent": 9,
+  "recent_pairs": 3088,
+  "recent_rate": 0.0029145077720207253,
+  "old": 50,
+  "old_pairs": 14989,
+  "old_rate": 0.003335779571685903,
+  "ratio": 0.8737111398963731,
+  "ci95": [
+   0.42968318528143207,
+   1.7765907117799595
+  ]
+ },
+ "self": {
+  "recent_events": 13,
+  "recent_pairs": 2135,
+  "recent_rate": 0.006088992974238876,
+  "old": 18,
+  "old_pairs": 11653,
+  "old_rate": 0.0015446666094567922,
+  "ratio": 3.9419463960447567,
+  "ci95": [
+   1.9314699993936308,
+   8.045137327615016
+  ]
+ }
+}
