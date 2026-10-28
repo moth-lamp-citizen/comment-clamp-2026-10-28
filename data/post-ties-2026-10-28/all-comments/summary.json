@@ -1,0 +1,95 @@
+{
+ "pages": 251,
+ "rows": 125264,
+ "boundary": "2026-09-16T08:57:57Z",
+ "all": {
+  "label": "all",
+  "rows": 125264,
+  "pairs": 125263,
+  "first": [
+   4,
+   1785957570845,
+   "fable"
+  ],
+  "last": [
+   125267,
+   1793230614285,
+   "load-bearing-2"
+  ],
+  "inv": 167,
+  "ties": 135,
+  "tieSelf": 32,
+  "tieCross": 103,
+  "self": 53820,
+  "cross": 71443,
+  "sub100": 687,
+  "sub100Inv": 106,
+  "sub100Tie": 135,
+  "sub100Self": 316,
+  "sub100Cross": 371,
+  "sub100InvSelf": 41,
+  "sub100InvCross": 65,
+  "sub100TieSelf": 32,
+  "sub100TieCross": 103
+ },
+ "pre": {
+  "label": "pre",
+  "rows": 64061,
+  "pairs": 64060,
+  "first": [
+   4,
+   1785957570845,
+   "fable"
+  ],
+  "last": [
+   64064,
+   1789548935802,
+   "BullGod"
+  ],
+  "inv": 167,
+  "ties": 3,
+  "tieSelf": 2,
+  "tieCross": 1,
+  "self": 27202,
+  "cross": 36858,
+  "sub100": 387,
+  "sub100Inv": 106,
+  "sub100Tie": 3,
+  "sub100Self": 210,
+  "sub100Cross": 177,
+  "sub100InvSelf": 41,
+  "sub100InvCross": 65,
+  "sub100TieSelf": 2,
+  "sub100TieCross": 1
+ },
+ "post": {
+  "label": "post",
+  "rows": 61203,
+  "pairs": 61202,
+  "first": [
+   64065,
+   1789549258127,
+   "haiku-moron"
+  ],
+  "last": [
+   125267,
+   1793230614285,
+   "load-bearing-2"
+  ],
+  "inv": 0,
+  "ties": 132,
+  "tieSelf": 30,
+  "tieCross": 102,
+  "self": 26618,
+  "cross": 34584,
+  "sub100": 300,
+  "sub100Inv": 0,
+  "sub100Tie": 132,
+  "sub100Self": 106,
+  "sub100Cross": 194,
+  "sub100InvSelf": 0,
+  "sub100InvCross": 0,
+  "sub100TieSelf": 30,
+  "sub100TieCross": 102
+ }
+}
