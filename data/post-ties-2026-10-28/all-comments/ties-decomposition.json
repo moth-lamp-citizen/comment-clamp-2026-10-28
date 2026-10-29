@@ -1,84 +1,219 @@
 {
  "boundary": "2026-09-16T08:57:57Z",
  "split_id": 64064,
- "pre": {
-  "pairs": 64060,
-  "self": 27202,
-  "cross": 36858,
-  "inv": 167,
-  "ties": 3,
-  "sub100": 387,
-  "posSub100": 278,
-  "arms": {
-   "self": {
-    "pairs": 27202,
-    "inv": 43,
-    "ties": 2,
-    "sub100": 210,
-    "posSub100": 167,
-    "invRate": 1.5808,
-    "posSub100Rate": 6.1393
+ "windows": {
+  "sub_second": {
+   "pre": {
+    "pairs": 10106,
+    "self": 8586,
+    "cross": 1520,
+    "inv": 167,
+    "ties": 3,
+    "arms": {
+     "self": {
+      "pairs": 8586,
+      "inv": 43,
+      "ties": 2,
+      "rate": 5.2411
+     },
+     "cross": {
+      "pairs": 1520,
+      "inv": 124,
+      "ties": 1,
+      "rate": 82.2368
+     }
+    },
+    "blendedRate": 16.8217
    },
-   "cross": {
-    "pairs": 36858,
-    "inv": 124,
-    "ties": 1,
-    "sub100": 177,
-    "posSub100": 111,
-    "invRate": 3.3643,
-    "posSub100Rate": 3.0116
-   }
-  }
- },
- "post": {
-  "pairs": 61202,
-  "self": 26618,
-  "cross": 34584,
-  "inv": 0,
-  "ties": 132,
-  "sub100": 300,
-  "posSub100": 168,
-  "arms": {
-   "self": {
-    "pairs": 26618,
+   "post": {
+    "pairs": 6299,
+    "self": 5039,
+    "cross": 1260,
     "inv": 0,
-    "ties": 30,
-    "sub100": 106,
-    "posSub100": 76,
-    "invRate": 0,
-    "posSub100Rate": 2.8552
+    "ties": 132,
+    "arms": {
+     "self": {
+      "pairs": 5039,
+      "inv": 0,
+      "ties": 30,
+      "rate": 5.9536
+     },
+     "cross": {
+      "pairs": 1260,
+      "inv": 0,
+      "ties": 102,
+      "rate": 80.9524
+     }
+    },
+    "blendedRate": 20.9557
    },
-   "cross": {
-    "pairs": 34584,
-    "inv": 0,
-    "ties": 102,
-    "sub100": 194,
-    "posSub100": 92,
-    "invRate": 0,
-    "posSub100Rate": 2.6602
+   "standardised": {
+    "window": "sub_second",
+    "arms": {
+     "self": {
+      "preRate": 5.2411,
+      "postPairs": 5039,
+      "expected": 26.41,
+      "observed": 30,
+      "ratio": 1.136
+     },
+     "cross": {
+      "preRate": 82.2368,
+      "postPairs": 1260,
+      "expected": 103.62,
+      "observed": 102,
+      "ratio": 0.984
+     }
+    },
+    "total": {
+     "expected": 130.03,
+     "observed": 132,
+     "ratio": 1.015,
+     "blendedExpected": 105.96
+    }
    }
-  }
- },
- "expectation": {
-  "self": {
-   "unconditional": 42.08,
-   "raceRatio": 0.4651,
-   "raceControlled": 19.57,
-   "observed": 30,
-   "ratioObservedControlled": 1.533
   },
-  "cross": {
-   "unconditional": 116.35,
-   "raceRatio": 0.8833,
-   "raceControlled": 102.77,
-   "observed": 102,
-   "ratioObservedControlled": 0.992
+  "tight_100ms": {
+   "pre": {
+    "pairs": 387,
+    "self": 210,
+    "cross": 177,
+    "inv": 106,
+    "ties": 3,
+    "arms": {
+     "self": {
+      "pairs": 210,
+      "inv": 41,
+      "ties": 2,
+      "rate": 204.7619
+     },
+     "cross": {
+      "pairs": 177,
+      "inv": 65,
+      "ties": 1,
+      "rate": 372.8814
+     }
+    },
+    "blendedRate": 281.6537
+   },
+   "post": {
+    "pairs": 300,
+    "self": 106,
+    "cross": 194,
+    "inv": 0,
+    "ties": 132,
+    "arms": {
+     "self": {
+      "pairs": 106,
+      "inv": 0,
+      "ties": 30,
+      "rate": 283.0189
+     },
+     "cross": {
+      "pairs": 194,
+      "inv": 0,
+      "ties": 102,
+      "rate": 525.7732
+     }
+    },
+    "blendedRate": 440
+   },
+   "standardised": {
+    "window": "tight_100ms",
+    "arms": {
+     "self": {
+      "preRate": 204.7619,
+      "postPairs": 106,
+      "expected": 21.7,
+      "observed": 30,
+      "ratio": 1.382
+     },
+     "cross": {
+      "preRate": 372.8814,
+      "postPairs": 194,
+      "expected": 72.34,
+      "observed": 102,
+      "ratio": 1.41
+     }
+    },
+    "total": {
+     "expected": 94.04,
+     "observed": 132,
+     "ratio": 1.404,
+     "blendedExpected": 84.5
+    }
+   }
   },
-  "total": {
-   "unconditional": 158.43,
-   "raceControlled": 122.34,
-   "observed": 132,
-   "ratio": 1.079
+  "all_pairs": {
+   "pre": {
+    "pairs": 64060,
+    "self": 27202,
+    "cross": 36858,
+    "inv": 167,
+    "ties": 3,
+    "arms": {
+     "self": {
+      "pairs": 27202,
+      "inv": 43,
+      "ties": 2,
+      "rate": 1.6543
+     },
+     "cross": {
+      "pairs": 36858,
+      "inv": 124,
+      "ties": 1,
+      "rate": 3.3914
+     }
+    },
+    "blendedRate": 2.6538
+   },
+   "post": {
+    "pairs": 61202,
+    "self": 26618,
+    "cross": 34584,
+    "inv": 0,
+    "ties": 132,
+    "arms": {
+     "self": {
+      "pairs": 26618,
+      "inv": 0,
+      "ties": 30,
+      "rate": 1.1271
+     },
+     "cross": {
+      "pairs": 34584,
+      "inv": 0,
+      "ties": 102,
+      "rate": 2.9493
+     }
+    },
+    "blendedRate": 2.1568
+   },
+   "standardised": {
+    "window": "all_pairs",
+    "arms": {
+     "self": {
+      "preRate": 1.6543,
+      "postPairs": 26618,
+      "expected": 44.03,
+      "observed": 30,
+      "ratio": 0.681
+     },
+     "cross": {
+      "preRate": 3.3914,
+      "postPairs": 34584,
+      "expected": 117.29,
+      "observed": 102,
+      "ratio": 0.87
+     }
+    },
+    "total": {
+     "expected": 161.32,
+     "observed": 132,
+     "ratio": 0.818,
+     "blendedExpected": 162.42
+    }
+   }
   }
  },
  "pre_inversion_lag": {
@@ -88,30 +223,5 @@
   "ge100Cross": 59,
   "mostNegativeMs": -514
  },
- "shares": {
-  "preInvCross": 74.25,
-  "postTieCross": 77.27,
-  "preSub100InvCross": 61.32,
-  "preSub100PairsCross": 45.74,
-  "postSub100PairsCross": 64.67
- },
- "tie_pairs_all": 135,
- "tie_pairs_post": 132,
- "tie_runs_all": 132,
- "tie_runs_post": 129,
- "multi_tie_runs": [
-  {
-   "start": 74100,
-   "end": 74102
-  },
-  {
-   "start": 86178,
-   "end": 86180
-  },
-  {
-   "start": 119714,
-   "end": 119716
-  }
- ],
  "generated_by": "ties-decompose.mjs"
 }

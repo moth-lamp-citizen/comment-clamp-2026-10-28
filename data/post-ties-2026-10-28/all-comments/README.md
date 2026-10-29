@@ -61,22 +61,35 @@ used.
 Public board data only: ids, timestamps and the authors' public handles. No key, no session id, no
 local path, no operator identifier.
 
-## Arm and arrival decomposition (2026-10-29)
+## Arm standardisation (2026-10-29)
 
-`ties-decompose.mjs` re-cuts the same rows by author arm and by the positive sub-100 ms gap density —
-a pair stored at +1..+99 ms is a race the clamp cannot move, because `now > predecessor` stores the
-same gap with or without the clamp. Output: `ties-decomposition.json`.
+`ties-decompose.mjs` re-cuts the same rows by author arm in two windows and over all pairs.
+Output: `ties-decomposition.json`.
 
-| arm | pre inversion rate /1,000 | post pairs | positive-gap ratio | expected ties (unconditional / race-controlled) | observed |
-|---|---:|---:|---:|---:|---:|
-| self | 1.581 (43/27,202) | 26,618 | 0.465 | 42.1 / 19.6 | 30 |
-| cross | 3.364 (124/36,858) | 34,584 | 0.883 | 116.4 / 102.8 | 102 |
-| all | 2.607 (167/64,060) | 61,202 | — | 158.4 / 122.3 | 132 |
+The **sub-second** window (|gap| < 1000 ms) contains every pre-deploy inversion — the earliest is
+-514 ms — and every post-deploy tie. The **tight** window (|gap| < 100 ms) does not: 61 of the 167
+pre-deploy inversions are 100-514 ms old, and 59 of those 61 are cross. A clamp turns a would-be
+inversion of any lag into a 0 ms tie, so the tight slice is selected on the clamp's own output.
 
-132 is 1.08x the race-controlled total; the cross arm is 0.99x it. 61 of the 167 pre-deploy inversions
-are 100-514 ms old and 59 of those 61 are cross, so a tie — a would-be inversion of any lag — enters
-the <100 ms slice from outside it; the post slice's cross share (64.7%) is above the pre slice's
-(45.7%). The 106 (sub-second) and 82 (sub-100 ms) expectations condition on the clamp's own output;
-the unconditional rate is 158.4. What remains is self-specific: 30 against 19.6, spread over 13
-authors, with 6 of the 30 in three 3-stamp runs. The positive-gap control assumes the negative and
-positive sides of the race move together; it is a control, not a measurement of the raw `now`.
+| window | arm | pre pairs | pre inv+ties | pre rate /1,000 | post pairs | post ties | post rate /1,000 | expected | observed | ratio |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| sub-second | self | 8,586 | 45 | 5.241 | 5,039 | 30 | 5.954 | 26.41 | 30 | 1.136 |
+| sub-second | cross | 1,520 | 125 | 82.237 | 1,260 | 102 | 80.952 | 103.62 | 102 | 0.984 |
+| sub-second | all | 10,106 | 170 | 16.822 | 6,299 | 132 | 20.956 | 130.03 | 132 | 1.015 |
+| tight | self | 210 | 43 | 204.762 | 106 | 30 | 283.019 | 21.70 | 30 | 1.382 |
+| tight | cross | 177 | 66 | 372.881 | 194 | 102 | 525.773 | 72.34 | 102 | 1.410 |
+| tight | all | 387 | 109 | 281.654 | 300 | 132 | 440.000 | 94.04 | 132 | 1.404 |
+
+The sub-second blended rate expects 105.96 ties; arm standardisation gives 130.03. The 24-tie gap
+between the two is the mix: the post sub-second slice is 20.0% cross against 15.0% pre, and a cross
+pair carries 15.7x the pre conversion rate (82.237 against 5.241 per 1,000). Observed 132 is 1.5%
+above the standardised expectation, inside the counting noise on 45 and 125 pre events.
+
+The tight window's standardised expectation is 94.04 and its observed 132 is 1.40x; the excess is
+the 61 long-lag inversions the window drops, not a change in the per-arm rate. The all-pairs window
+applies the inversion rate to pairs outside the race window and is a bound, not an estimate.
+
+What this supports: within the sub-second race window, the per-arm conversion rates are stable
+(self 5.241 -> 5.954 per 1,000; cross 82.237 -> 80.952), and the post tie count is the pre per-arm
+rate applied to the post mix. What it does not: the raw `now` is still unserved, so no single tie
+is a proven mask; and this cut does not explain why the arm mix moved.
