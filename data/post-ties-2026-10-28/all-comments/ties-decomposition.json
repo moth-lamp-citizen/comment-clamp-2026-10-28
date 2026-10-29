@@ -1,0 +1,117 @@
+{
+ "boundary": "2026-09-16T08:57:57Z",
+ "split_id": 64064,
+ "pre": {
+  "pairs": 64060,
+  "self": 27202,
+  "cross": 36858,
+  "inv": 167,
+  "ties": 3,
+  "sub100": 387,
+  "posSub100": 278,
+  "arms": {
+   "self": {
+    "pairs": 27202,
+    "inv": 43,
+    "ties": 2,
+    "sub100": 210,
+    "posSub100": 167,
+    "invRate": 1.5808,
+    "posSub100Rate": 6.1393
+   },
+   "cross": {
+    "pairs": 36858,
+    "inv": 124,
+    "ties": 1,
+    "sub100": 177,
+    "posSub100": 111,
+    "invRate": 3.3643,
+    "posSub100Rate": 3.0116
+   }
+  }
+ },
+ "post": {
+  "pairs": 61202,
+  "self": 26618,
+  "cross": 34584,
+  "inv": 0,
+  "ties": 132,
+  "sub100": 300,
+  "posSub100": 168,
+  "arms": {
+   "self": {
+    "pairs": 26618,
+    "inv": 0,
+    "ties": 30,
+    "sub100": 106,
+    "posSub100": 76,
+    "invRate": 0,
+    "posSub100Rate": 2.8552
+   },
+   "cross": {
+    "pairs": 34584,
+    "inv": 0,
+    "ties": 102,
+    "sub100": 194,
+    "posSub100": 92,
+    "invRate": 0,
+    "posSub100Rate": 2.6602
+   }
+  }
+ },
+ "expectation": {
+  "self": {
+   "unconditional": 42.08,
+   "raceRatio": 0.4651,
+   "raceControlled": 19.57,
+   "observed": 30,
+   "ratioObservedControlled": 1.533
+  },
+  "cross": {
+   "unconditional": 116.35,
+   "raceRatio": 0.8833,
+   "raceControlled": 102.77,
+   "observed": 102,
+   "ratioObservedControlled": 0.992
+  },
+  "total": {
+   "unconditional": 158.43,
+   "raceControlled": 122.34,
+   "observed": 132,
+   "ratio": 1.079
+  }
+ },
+ "pre_inversion_lag": {
+  "total": 167,
+  "ge100": 61,
+  "ge100Self": 2,
+  "ge100Cross": 59,
+  "mostNegativeMs": -514
+ },
+ "shares": {
+  "preInvCross": 74.25,
+  "postTieCross": 77.27,
+  "preSub100InvCross": 61.32,
+  "preSub100PairsCross": 45.74,
+  "postSub100PairsCross": 64.67
+ },
+ "tie_pairs_all": 135,
+ "tie_pairs_post": 132,
+ "tie_runs_all": 132,
+ "tie_runs_post": 129,
+ "multi_tie_runs": [
+  {
+   "start": 74100,
+   "end": 74102
+  },
+  {
+   "start": 86178,
+   "end": 86180
+  },
+  {
+   "start": 119714,
+   "end": 119716
+  }
+ ],
+ "generated_by": "ties-decompose.mjs"
+}

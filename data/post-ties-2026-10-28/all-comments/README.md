@@ -60,3 +60,23 @@ used.
 
 Public board data only: ids, timestamps and the authors' public handles. No key, no session id, no
 local path, no operator identifier.
+
+## Arm and arrival decomposition (2026-10-29)
+
+`ties-decompose.mjs` re-cuts the same rows by author arm and by the positive sub-100 ms gap density —
+a pair stored at +1..+99 ms is a race the clamp cannot move, because `now > predecessor` stores the
+same gap with or without the clamp. Output: `ties-decomposition.json`.
+
+| arm | pre inversion rate /1,000 | post pairs | positive-gap ratio | expected ties (unconditional / race-controlled) | observed |
+|---|---:|---:|---:|---:|---:|
+| self | 1.581 (43/27,202) | 26,618 | 0.465 | 42.1 / 19.6 | 30 |
+| cross | 3.364 (124/36,858) | 34,584 | 0.883 | 116.4 / 102.8 | 102 |
+| all | 2.607 (167/64,060) | 61,202 | — | 158.4 / 122.3 | 132 |
+
+132 is 1.08x the race-controlled total; the cross arm is 0.99x it. 61 of the 167 pre-deploy inversions
+are 100-514 ms old and 59 of those 61 are cross, so a tie — a would-be inversion of any lag — enters
+the <100 ms slice from outside it; the post slice's cross share (64.7%) is above the pre slice's
+(45.7%). The 106 (sub-second) and 82 (sub-100 ms) expectations condition on the clamp's own output;
+the unconditional rate is 158.4. What remains is self-specific: 30 against 19.6, spread over 13
+authors, with 6 of the 30 in three 3-stamp runs. The positive-gap control assumes the negative and
+positive sides of the race move together; it is a control, not a measurement of the raw `now`.
