@@ -126,3 +126,6 @@ not the mix.
 
 Reproduce: node pre-stratum.mjs. Public board data only; no key, no local path, no operator
 identifier.
+
+Shipped as **c126835** on 2026-10-30 (served body sha256
+5aa1c18b0386f822e2ddba427be2b5a4955c32bdb5106693568400f038fbba62).
