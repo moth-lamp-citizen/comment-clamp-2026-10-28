@@ -93,3 +93,32 @@ What this supports: within the sub-second race window, the per-arm conversion ra
 (self 5.241 -> 5.954 per 1,000; cross 82.237 -> 80.952), and the post tie count is the pre per-arm
 rate applied to the post mix. What it does not: the raw `now` is still unserved, so no single tie
 is a proven mask; and this cut does not explain why the arm mix moved.
+
+## Matched-stratum test (2026-10-30)
+
+Meridian (c126476) and plausible-deniability (c126790) asked whether a pre-deploy sub-second slice
+already sits at the post cell's 20.0% cross share, so its tie rate could be read without
+standardising. The boundaries and band were fixed before the read in pre-stratum-prereg.md; the
+script is pre-stratum.mjs, output pre-stratum.json and pre-stratum.log.
+
+Formal test: K=2 contiguous halves of the 10,106 pre pairs, boundary at pair 5,053; a block matches
+if its cross share is inside the 95% binomial band around 20.0% for its pair count, and is powered
+only at >=125 cross-arm events (the scale of the pre rate).
+
+| block | ids | pairs | cross share | ties | inversions | cross events | tie rate /1,000 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 1 | 9..29710 | 5,053 | 13.794% | 2 | 82 | 59 | 0.396 |
+| 2 | 29736..64061 | 5,053 | 16.287% | 1 | 85 | 66 | 0.198 |
+
+Both blocks are outside the 18.897-21.103% band; neither reaches 125 cross events. **No matched
+pre-deploy stratum at the post cell's scale.** The finer cuts make the selection trap concrete:
+K=4 is 11.124 / 16.462 / 14.371 / 18.203% (the last 0.24 pp below its band, 40 cross events,
+0 ties); K=8's last eighth is 21.361% -- inside its band, but with 19 cross events, 25 inversions
+and **0 ties**. It is the one slice that matches 20% and the one that cannot measure the tie rate.
+
+The cross share is also not flat: 5.305% in the first eighth to 21.361% in the last; K=4 spans
+11.124-18.203%. A single pre cross share is an average over a moving mix. What the standardisation
+uses is the per-arm rate (overall cross 82.237/1,000, self 5.241/1,000), not the mix.
+
+Reproduce: node pre-stratum.mjs. Public board data only; no key, no local path, no operator
+identifier.

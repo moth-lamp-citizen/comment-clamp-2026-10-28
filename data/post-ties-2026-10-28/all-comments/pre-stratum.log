@@ -1,0 +1,22 @@
+population pre: {"n":10106,"cross":1520,"crossShare":15.041,"ties":3,"inv":167,"events":170,"crossEvents":125,"selfEvents":45,"tieRate":0.297,"eventRate":16.822,"crossEventRate":82.237,"selfEventRate":5.241}
+population post: {"n":6299,"cross":1260,"crossShare":20.003,"ties":132,"inv":0,"events":132,"crossEvents":102,"selfEvents":30,"tieRate":20.956,"eventRate":20.956,"crossEventRate":80.952,"selfEventRate":5.954}
+
+K=2 (formal)
+  block 1 ids 9..29710 n=5053 cross=13.794% band=[18.897,21.103] ties=2 inv=82 events=84 crossEvents=59 tieRate=0.396/1k eventRate=16.624/1k inBand=false powered=false
+  block 2 ids 29736..64061 n=5053 cross=16.287% band=[18.897,21.103] ties=1 inv=85 events=86 crossEvents=66 tieRate=0.198/1k eventRate=17.02/1k inBand=false powered=false
+
+K=4 (descriptive only)
+  block 1 ids 9..14084 n=2526 cross=11.124% band=[18.44,21.56] ties=0 inv=25 events=25 crossEvents=24 tieRate=0/1k eventRate=9.897/1k inBand=false powered=false
+  block 2 ids 14094..29710 n=2527 cross=16.462% band=[18.44,21.56] ties=2 inv=57 events=59 crossEvents=35 tieRate=0.791/1k eventRate=23.348/1k inBand=false powered=false
+  block 3 ids 29736..45750 n=2526 cross=14.371% band=[18.44,21.56] ties=1 inv=33 events=34 crossEvents=26 tieRate=0.396/1k eventRate=13.46/1k inBand=false powered=false
+  block 4 ids 45762..64061 n=2527 cross=18.203% band=[18.44,21.56] ties=0 inv=52 events=52 crossEvents=40 tieRate=0/1k eventRate=20.578/1k inBand=false powered=false
+
+K=8 (descriptive only)
+  block 1 ids 9..6669 n=1263 cross=5.305% band=[17.794,22.206] ties=0 inv=8 events=8 crossEvents=8 tieRate=0/1k eventRate=6.334/1k inBand=false powered=false
+  block 2 ids 6670..14084 n=1263 cross=16.944% band=[17.794,22.206] ties=0 inv=17 events=17 crossEvents=16 tieRate=0/1k eventRate=13.46/1k inBand=false powered=false
+  block 3 ids 14094..22097 n=1263 cross=15.598% band=[17.794,22.206] ties=2 inv=25 events=27 crossEvents=13 tieRate=1.584/1k eventRate=21.378/1k inBand=false powered=false
+  block 4 ids 22099..29710 n=1264 cross=17.326% band=[17.795,22.205] ties=0 inv=32 events=32 crossEvents=22 tieRate=0/1k eventRate=25.316/1k inBand=false powered=false
+  block 5 ids 29736..37793 n=1263 cross=14.648% band=[17.794,22.206] ties=1 inv=14 events=15 crossEvents=14 tieRate=0.792/1k eventRate=11.876/1k inBand=false powered=false
+  block 6 ids 37798..45750 n=1263 cross=14.093% band=[17.794,22.206] ties=0 inv=19 events=19 crossEvents=12 tieRate=0/1k eventRate=15.044/1k inBand=false powered=false
+  block 7 ids 45762..54268 n=1263 cross=15.044% band=[17.794,22.206] ties=0 inv=27 events=27 crossEvents=21 tieRate=0/1k eventRate=21.378/1k inBand=false powered=false
+  block 8 ids 54276..64061 n=1264 cross=21.361% band=[17.795,22.205] ties=0 inv=25 events=25 crossEvents=19 tieRate=0/1k eventRate=19.778/1k inBand=true powered=false

@@ -1,0 +1,350 @@
+{
+ "generated_by": "data/post-ties-2026-10-28/all-comments/pre-stratum.mjs",
+ "split_id": 64064,
+ "population": {
+  "pre": {
+   "n": 10106,
+   "cross": 1520,
+   "crossShare": 15.041,
+   "ties": 3,
+   "inv": 167,
+   "events": 170,
+   "crossEvents": 125,
+   "selfEvents": 45,
+   "tieRate": 0.297,
+   "eventRate": 16.822,
+   "crossEventRate": 82.237,
+   "selfEventRate": 5.241
+  },
+  "post": {
+   "n": 6299,
+   "cross": 1260,
+   "crossShare": 20.003,
+   "ties": 132,
+   "inv": 0,
+   "events": 132,
+   "crossEvents": 102,
+   "selfEvents": 30,
+   "tieRate": 20.956,
+   "eventRate": 20.956,
+   "crossEventRate": 80.952,
+   "selfEventRate": 5.954
+  }
+ },
+ "blocks": {
+  "K2": [
+   {
+    "n": 5053,
+    "cross": 697,
+    "crossShare": 13.794,
+    "ties": 2,
+    "inv": 82,
+    "events": 84,
+    "crossEvents": 59,
+    "selfEvents": 25,
+    "tieRate": 0.396,
+    "eventRate": 16.624,
+    "crossEventRate": 84.648,
+    "selfEventRate": 5.739,
+    "block": 1,
+    "idRange": "9..29710",
+    "band": [
+     18.897,
+     21.103
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 5053,
+    "cross": 823,
+    "crossShare": 16.287,
+    "ties": 1,
+    "inv": 85,
+    "events": 86,
+    "crossEvents": 66,
+    "selfEvents": 20,
+    "tieRate": 0.198,
+    "eventRate": 17.02,
+    "crossEventRate": 80.194,
+    "selfEventRate": 4.728,
+    "block": 2,
+    "idRange": "29736..64061",
+    "band": [
+     18.897,
+     21.103
+    ],
+    "inBand": false,
+    "powered": false
+   }
+  ],
+  "K4": [
+   {
+    "n": 2526,
+    "cross": 281,
+    "crossShare": 11.124,
+    "ties": 0,
+    "inv": 25,
+    "events": 25,
+    "crossEvents": 24,
+    "selfEvents": 1,
+    "tieRate": 0,
+    "eventRate": 9.897,
+    "crossEventRate": 85.409,
+    "selfEventRate": 0.445,
+    "block": 1,
+    "idRange": "9..14084",
+    "band": [
+     18.44,
+     21.56
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 2527,
+    "cross": 416,
+    "crossShare": 16.462,
+    "ties": 2,
+    "inv": 57,
+    "events": 59,
+    "crossEvents": 35,
+    "selfEvents": 24,
+    "tieRate": 0.791,
+    "eventRate": 23.348,
+    "crossEventRate": 84.135,
+    "selfEventRate": 11.369,
+    "block": 2,
+    "idRange": "14094..29710",
+    "band": [
+     18.44,
+     21.56
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 2526,
+    "cross": 363,
+    "crossShare": 14.371,
+    "ties": 1,
+    "inv": 33,
+    "events": 34,
+    "crossEvents": 26,
+    "selfEvents": 8,
+    "tieRate": 0.396,
+    "eventRate": 13.46,
+    "crossEventRate": 71.625,
+    "selfEventRate": 3.699,
+    "block": 3,
+    "idRange": "29736..45750",
+    "band": [
+     18.44,
+     21.56
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 2527,
+    "cross": 460,
+    "crossShare": 18.203,
+    "ties": 0,
+    "inv": 52,
+    "events": 52,
+    "crossEvents": 40,
+    "selfEvents": 12,
+    "tieRate": 0,
+    "eventRate": 20.578,
+    "crossEventRate": 86.957,
+    "selfEventRate": 5.806,
+    "block": 4,
+    "idRange": "45762..64061",
+    "band": [
+     18.44,
+     21.56
+    ],
+    "inBand": false,
+    "powered": false
+   }
+  ],
+  "K8": [
+   {
+    "n": 1263,
+    "cross": 67,
+    "crossShare": 5.305,
+    "ties": 0,
+    "inv": 8,
+    "events": 8,
+    "crossEvents": 8,
+    "selfEvents": 0,
+    "tieRate": 0,
+    "eventRate": 6.334,
+    "crossEventRate": 119.403,
+    "selfEventRate": 0,
+    "block": 1,
+    "idRange": "9..6669",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1263,
+    "cross": 214,
+    "crossShare": 16.944,
+    "ties": 0,
+    "inv": 17,
+    "events": 17,
+    "crossEvents": 16,
+    "selfEvents": 1,
+    "tieRate": 0,
+    "eventRate": 13.46,
+    "crossEventRate": 74.766,
+    "selfEventRate": 0.953,
+    "block": 2,
+    "idRange": "6670..14084",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1263,
+    "cross": 197,
+    "crossShare": 15.598,
+    "ties": 2,
+    "inv": 25,
+    "events": 27,
+    "crossEvents": 13,
+    "selfEvents": 14,
+    "tieRate": 1.584,
+    "eventRate": 21.378,
+    "crossEventRate": 65.99,
+    "selfEventRate": 13.133,
+    "block": 3,
+    "idRange": "14094..22097",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1264,
+    "cross": 219,
+    "crossShare": 17.326,
+    "ties": 0,
+    "inv": 32,
+    "events": 32,
+    "crossEvents": 22,
+    "selfEvents": 10,
+    "tieRate": 0,
+    "eventRate": 25.316,
+    "crossEventRate": 100.457,
+    "selfEventRate": 9.569,
+    "block": 4,
+    "idRange": "22099..29710",
+    "band": [
+     17.795,
+     22.205
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1263,
+    "cross": 185,
+    "crossShare": 14.648,
+    "ties": 1,
+    "inv": 14,
+    "events": 15,
+    "crossEvents": 14,
+    "selfEvents": 1,
+    "tieRate": 0.792,
+    "eventRate": 11.876,
+    "crossEventRate": 75.676,
+    "selfEventRate": 0.928,
+    "block": 5,
+    "idRange": "29736..37793",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1263,
+    "cross": 178,
+    "crossShare": 14.093,
+    "ties": 0,
+    "inv": 19,
+    "events": 19,
+    "crossEvents": 12,
+    "selfEvents": 7,
+    "tieRate": 0,
+    "eventRate": 15.044,
+    "crossEventRate": 67.416,
+    "selfEventRate": 6.452,
+    "block": 6,
+    "idRange": "37798..45750",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1263,
+    "cross": 190,
+    "crossShare": 15.044,
+    "ties": 0,
+    "inv": 27,
+    "events": 27,
+    "crossEvents": 21,
+    "selfEvents": 6,
+    "tieRate": 0,
+    "eventRate": 21.378,
+    "crossEventRate": 110.526,
+    "selfEventRate": 5.592,
+    "block": 7,
+    "idRange": "45762..54268",
+    "band": [
+     17.794,
+     22.206
+    ],
+    "inBand": false,
+    "powered": false
+   },
+   {
+    "n": 1264,
+    "cross": 270,
+    "crossShare": 21.361,
+    "ties": 0,
+    "inv": 25,
+    "events": 25,
+    "crossEvents": 19,
+    "selfEvents": 6,
+    "tieRate": 0,
+    "eventRate": 19.778,
+    "crossEventRate": 70.37,
+    "selfEventRate": 6.036,
+    "block": 8,
+    "idRange": "54276..64061",
+    "band": [
+     17.795,
+     22.205
+    ],
+    "inBand": true,
+    "powered": false
+   }
+  ]
+ }
+}
