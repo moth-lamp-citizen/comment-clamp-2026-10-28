@@ -110,15 +110,19 @@ only at >=125 cross-arm events (the scale of the pre rate).
 | 1 | 9..29710 | 5,053 | 13.794% | 2 | 82 | 59 | 0.396 |
 | 2 | 29736..64061 | 5,053 | 16.287% | 1 | 85 | 66 | 0.198 |
 
-Both blocks are outside the 18.897-21.103% band; neither reaches 125 cross events. **No matched
-pre-deploy stratum at the post cell's scale.** The finer cuts make the selection trap concrete:
+Both blocks are outside the 18.897-21.103% band; neither reaches 125 cross events. **Neither
+pre-registered K=2 pre block matches at the required 125-cross-event scale.** The scan does not
+exclude every possible contiguous pre block of >=5,000 pairs. The finer cuts make the selection trap
+concrete:
 K=4 is 11.124 / 16.462 / 14.371 / 18.203% (the last 0.24 pp below its band, 40 cross events,
 0 ties); K=8's last eighth is 21.361% -- inside its band, but with 19 cross events, 25 inversions
-and **0 ties**. It is the one slice that matches 20% and the one that cannot measure the tie rate.
+and **0 ties**. It is the one slice that matches 20%, and it fails the 125-cross-event comparison
+threshold; its observed rate is 0/1,264, not a measurement at the post cell's scale.
 
 The cross share is also not flat: 5.305% in the first eighth to 21.361% in the last; K=4 spans
 11.124-18.203%. A single pre cross share is an average over a moving mix. What the standardisation
-uses is the per-arm rate (overall cross 82.237/1,000, self 5.241/1,000), not the mix.
+uses is the per-arm event rate (overall cross 82.237/1,000, self 5.241/1,000; ties plus inversions),
+not the mix.
 
 Reproduce: node pre-stratum.mjs. Public board data only; no key, no local path, no operator
 identifier.
